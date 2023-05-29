@@ -1,0 +1,743 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="quadruped_robot">
+  <link
+    name="body">
+    <inertial>
+      <origin
+        xyz="0.0679901245168665 0.597488812563121 0.877294534053913"
+        rpy="0 0 0" />
+      <mass
+        value="79.5537197619101" />
+      <inertia
+        ixx="1.64089584946242"
+        ixy="-5.94676453121899E-07"
+        ixz="-3.23528256055048E-06"
+        iyy="7.38765675032663"
+        iyz="1.08488702553043E-07"
+        izz="6.25234462192461" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quadruped_robot/meshes/body.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0.752941176470588 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quadruped_robot/meshes/body.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="front_right_thigh">
+    <inertial>
+      <origin
+        xyz="0.063184 -4.007E-09 0.057964"
+        rpy="0 0 0" />
+      <mass
+        value="2.85" />
+      <inertia
+        ixx="0.013018"
+        ixy="1.3023E-08"
+        ixz="-0.0014314"
+        iyy="0.012955"
+        iyz="-1.9185E-09"
+        izz="0.0069244" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quadruped_robot/meshes/front_right_thigh.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.25098 0.25098 0.25098 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quadruped_robot/meshes/front_right_thigh.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="front_right_thigh_joint"
+    type="revolute">
+    <origin
+      xyz="0.31787 -1.0573 0.59749"
+      rpy="1.3364 0 0" />
+    <parent
+      link="body" />
+    <child
+      link="front_right_thigh" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="-3.142"
+      upper="3.142"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="front_right_leg">
+    <inertial>
+      <origin
+        xyz="0.147978463599939 -0.249716724037289 -0.0691629173327735"
+        rpy="0 0 0" />
+      <mass
+        value="6.93816605315389" />
+      <inertia
+        ixx="0.144761614224377"
+        ixy="-0.00478960770176635"
+        ixz="-4.32337385284504E-08"
+        iyy="0.0173922062520311"
+        iyz="2.48809490599282E-08"
+        izz="0.145237817762598" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quadruped_robot/meshes/front_right_leg.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 1 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quadruped_robot/meshes/front_right_leg.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="front_right_leg_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="-2.9656 -1.5699 3.1416" />
+    <parent
+      link="front_right_thigh" />
+    <child
+      link="front_right_leg" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="front_right_shin">
+    <inertial>
+      <origin
+        xyz="-0.172005237714116 0.206758561093217 -2.48952136738811E-07"
+        rpy="0 0 0" />
+      <mass
+        value="2.18910071138097" />
+      <inertia
+        ixx="0.0495545056018013"
+        ixy="2.08007780870588E-08"
+        ixz="-8.99595218760083E-09"
+        iyy="0.00191157868100471"
+        iyz="-1.05542748879331E-07"
+        izz="0.0499443311744186" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quadruped_robot/meshes/front_right_shin.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quadruped_robot/meshes/front_right_shin.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="front_right_shin_joint"
+    type="revolute">
+    <origin
+      xyz="-0.02707 -0.5123 -0.069163"
+      rpy="0.79708 0 -3.1416" />
+    <parent
+      link="front_right_leg" />
+    <child
+      link="front_right_shin" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="front_left_thigh">
+    <inertial>
+      <origin
+        xyz="0.0631841708535212 -8.38368596767225E-10 0.0579640138014491"
+        rpy="0 0 0" />
+      <mass
+        value="2.85003544879558" />
+      <inertia
+        ixx="0.0130181529222205"
+        ixy="7.61330243145223E-09"
+        ixz="-0.00143147540807124"
+        iyy="0.0129553918936464"
+        iyz="8.08769538970452E-11"
+        izz="0.00692438120955021" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quadruped_robot/meshes/front_left_thigh.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quadruped_robot/meshes/front_left_thigh.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="front_left_thigh_joint"
+    type="revolute">
+    <origin
+      xyz="0.31787 -0.69729 0.59749"
+      rpy="-1.6419 0 0" />
+    <parent
+      link="body" />
+    <child
+      link="front_left_thigh" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="front_left_leg">
+    <inertial>
+      <origin
+        xyz="0.116543235444283 -0.237417577827275 2.58670500574709E-08"
+        rpy="0 0 0" />
+      <mass
+        value="6.93818133420775" />
+      <inertia
+        ixx="0.144761814337306"
+        ixy="-0.00478953683900206"
+        ixz="-4.32179740601606E-08"
+        iyy="0.0173922894177135"
+        iyz="-6.31809584993948E-09"
+        izz="0.145238019251323" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quadruped_robot/meshes/front_left_leg.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 1 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quadruped_robot/meshes/front_left_leg.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="front_left_leg_joint"
+    type="revolute">
+    <origin
+      xyz="0.070219 0 0.0315"
+      rpy="-0.54504 -1.5699 -3.1416" />
+    <parent
+      link="front_left_thigh" />
+    <child
+      link="front_left_leg" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="front_left_shin">
+    <inertial>
+      <origin
+        xyz="-0.0850390568013732 0.206758662628732 2.40117578362287E-07"
+        rpy="0 0 0" />
+      <mass
+        value="2.18909364696934" />
+      <inertia
+        ixx="0.0495545183148702"
+        ixy="-3.12793470971104E-09"
+        ixz="-9.01438229118125E-09"
+        iyy="0.00191161767954646"
+        iyz="-1.07893299307646E-08"
+        izz="0.0499442655726713" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quadruped_robot/meshes/front_left_shin.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quadruped_robot/meshes/front_left_shin.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="front_left_shin_joint"
+    type="revolute">
+    <origin
+      xyz="0.028461 -0.5 0"
+      rpy="-1.8903 0 3.1416" />
+    <parent
+      link="front_left_leg" />
+    <child
+      link="front_left_shin" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="back_right_thigh">
+    <inertial>
+      <origin
+        xyz="0.063184254934068 7.39481836875555E-09 0.0579639904746756"
+        rpy="0 0 0" />
+      <mass
+        value="2.85003646130647" />
+      <inertia
+        ixx="0.0130181134641405"
+        ixy="-1.05523312495795E-08"
+        ixz="-0.00143136304733187"
+        iyy="0.0129553224627679"
+        iyz="3.27231693976991E-09"
+        izz="0.00692435062908395" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quadruped_robot/meshes/back_right_thigh.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quadruped_robot/meshes/back_right_thigh.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="back_right_thigh_joint"
+    type="revolute">
+    <origin
+      xyz="-0.18189 -1.0573 0.59749"
+      rpy="-1.2051 0 3.1416" />
+    <parent
+      link="body" />
+    <child
+      link="back_right_thigh" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="back_right_leg">
+    <inertial>
+      <origin
+        xyz="0.273408176052154 -0.237417522053995 -3.3895331374989E-08"
+        rpy="0 0 0" />
+      <mass
+        value="6.93817966820701" />
+      <inertia
+        ixx="0.144761749953298"
+        ixy="-0.00478948379905405"
+        ixz="-4.07485358320386E-08"
+        iyy="0.0173922701962726"
+        iyz="-1.59821218390609E-08"
+        izz="0.145237945681615" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quadruped_robot/meshes/back_right_leg.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 1 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quadruped_robot/meshes/back_right_leg.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="back_right_leg_joint"
+    type="revolute">
+    <origin
+      xyz="0.070365 0 -0.12536"
+      rpy="-0.60192 -1.5699 -3.1416" />
+    <parent
+      link="back_right_thigh" />
+    <child
+      link="back_right_leg" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="back_right_shin">
+    <inertial>
+      <origin
+        xyz="0.229259548212514 0.206758661500748 3.30231620937482E-08"
+        rpy="0 0 0" />
+      <mass
+        value="2.18909743803364" />
+      <inertia
+        ixx="0.0495545052471728"
+        ixy="7.59388852798401E-11"
+        ixz="-7.30049189026985E-09"
+        iyy="0.00191161507124135"
+        iyz="-4.31294461588423E-08"
+        izz="0.0499442473797568" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quadruped_robot/meshes/back_right_shin.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quadruped_robot/meshes/back_right_shin.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="back_right_shin_joint"
+    type="revolute">
+    <origin
+      xyz="0.041106 -0.5 0"
+      rpy="-2.0613 0 0" />
+    <parent
+      link="back_right_leg" />
+    <child
+      link="back_right_shin" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="back_left_thigh">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quadruped_robot/meshes/back_left_thigh.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quadruped_robot/meshes/back_left_thigh.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="back_left_thigh_joint"
+    type="revolute">
+    <origin
+      xyz="-0.18189 -0.69729 0.59749"
+      rpy="1.362 0 3.1416" />
+    <parent
+      link="body" />
+    <child
+      link="back_left_thigh" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="back_left_leg">
+    <inertial>
+      <origin
+        xyz="0.0669711136669638 -0.237417721169383 3.56484518015954E-08"
+        rpy="0 0 0" />
+      <mass
+        value="6.93816621303876" />
+      <inertia
+        ixx="0.144761617413577"
+        ixy="-0.00478961529350195"
+        ixz="-3.79749721341003E-08"
+        iyy="0.0173922071667331"
+        iyz="-4.41235797085746E-10"
+        izz="0.145237820221144" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quadruped_robot/meshes/back_left_leg.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 1 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quadruped_robot/meshes/back_left_leg.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="back_left_leg_joint"
+    type="revolute">
+    <origin
+      xyz="0.070172 0 0.081073"
+      rpy="3.0436 -1.5699 -3.1416" />
+    <parent
+      link="back_left_thigh" />
+    <child
+      link="back_left_leg" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="back_left_shin">
+    <inertial>
+      <origin
+        xyz="0.0639282606994913 0.206756319922052 -8.48188363572477E-07"
+        rpy="0 0 0" />
+      <mass
+        value="2.18914769812056" />
+      <inertia
+        ixx="0.0495549322884529"
+        ixy="8.86088867569355E-08"
+        ixz="2.22397695103654E-08"
+        iyy="0.00191156546931231"
+        iyz="-1.25450852463164E-07"
+        izz="0.0499447670863911" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quadruped_robot/meshes/back_left_shin.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quadruped_robot/meshes/back_left_shin.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="back_left_shin_joint"
+    type="revolute">
+    <origin
+      xyz="0 -0.5 0"
+      rpy="2.8441 0 0" />
+    <parent
+      link="back_left_leg" />
+    <child
+      link="back_left_shin" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+</robot>
