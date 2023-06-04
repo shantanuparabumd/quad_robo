@@ -1,0 +1,67 @@
+controller_joint_names: ['', 'back_right_thigh_joint', 'back_right_leg_joint', 'back_right_shin_joint', 'back_left_thigh_joint', 'back_left_leg_joint', 'back_left_shin_joint', 'front_left_thigh_joint', 'front_left_leg_joint', 'front_left_shin_joint', 'front_right_thigh_joint', 'front_right_leg_joint', 'front_right_shin_joint', ]
+
+
+quad_robo:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  # Position Controllers ---------------------------------------
+
+  # Back Right
+  brt_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: "back_right_thigh_joint"
+    pid: {p: 2000.0, i: 0.01, d: 100.0}
+  brl_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: "back_right_leg_joint"
+    pid: {p: 2000.0, i: 0.01, d: 100.0}
+  brs_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: "back_right_shin_joint"
+    pid: {p: 2000.0, i: 0.01, d: 100.0}
+
+
+  # Front Right
+  frt_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: "front_right_thigh_joint"
+    pid: {p: 2000.0, i: 0.01, d: 100.0}
+  frl_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: "front_right_leg_joint"
+    pid: {p: 2000.0, i: 0.01, d: 100.0}
+  frs_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: "front_right_shin_joint"
+    pid: {p: 2000.0, i: 0.01, d: 100.0}
+
+    # Back Left
+  blt_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: "back_left_thigh_joint"
+    pid: {p: 2000.0, i: 0.01, d: 100.0}
+  bll_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: "back_left_leg_joint"
+    pid: {p: 2000.0, i: 0.01, d: 100.0}
+  bls_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: "back_left_shin_joint"
+    pid: {p: 2000.0, i: 0.01, d: 100.0}
+
+    # Front Left
+  flt_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: "front_left_thigh_joint"
+    pid: {p: 2000.0, i: 0.01, d: 100.0}
+  fll_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: "front_left_leg_joint"
+    pid: {p: 2000.0, i: 0.01, d: 100.0}
+  fls_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: "front_left_shin_joint"
+    pid: {p: 2000.0, i: 0.01, d: 100.0}
