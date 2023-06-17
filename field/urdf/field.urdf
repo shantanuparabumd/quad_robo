@@ -3,22 +3,22 @@
      Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
-  name="new_arena">
+  name="field">
   <link
     name="arena">
     <inertial>
       <origin
-        xyz="1.80521197365816E-16 0.251860663172305 -4.7103827393181E-16"
+        xyz="-1.07796256326989E-16 5.24094761893937E-16 0.251860663172305"
         rpy="0 0 0" />
       <mass
         value="36196.5475825679" />
       <inertia
         ixx="111361.282109728"
-        ixy="2.43960805775586E-12"
-        ixz="5.68961615328297E-11"
-        iyy="621439.168724381"
-        iyz="7.09664604464703E-13"
-        izz="512546.576764148" />
+        ixy="-5.68961615328298E-11"
+        ixz="1.47345935311266E-12"
+        iyy="512546.576764148"
+        iyz="6.31493583110209E-12"
+        izz="621439.168724381" />
     </inertial>
     <visual>
       <origin
@@ -26,7 +26,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://new_arena/meshes/arena.STL" />
+          filename="package://field/meshes/arena.STL" />
       </geometry>
       <material
         name="">
@@ -40,7 +40,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://new_arena/meshes/arena.STL" />
+          filename="package://field/meshes/arena.STL" />
       </geometry>
     </collision>
   </link>
@@ -48,17 +48,17 @@
     name="slope">
     <inertial>
       <origin
-        xyz="-1.72294044859281E-15 -0.0624999999999999 0"
+        xyz="-0.331974275290728 -0.125 0"
         rpy="0 0 0" />
       <mass
-        value="5300" />
+        value="420" />
       <inertia
-        ixx="1871.13020833333"
-        ixy="-5.16947595841089E-13"
-        ixz="1.14597522935719E-12"
-        iyy="20025.5208333333"
-        iyz="2.63677968348475E-14"
-        izz="18363.3177083333" />
+        ixx="143.15"
+        ixy="0"
+        ixz="-3.70074341541719E-15"
+        iyy="157.15"
+        iyz="6.30512779412488E-32"
+        izz="20.3" />
     </inertial>
     <visual>
       <origin
@@ -66,12 +66,12 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://new_arena/meshes/slope.STL" />
+          filename="package://field/meshes/slope.STL" />
       </geometry>
       <material
         name="">
         <color
-          rgba="0.501960784313725 0.501960784313725 1 1" />
+          rgba="0.988235294117647 0.737254901960784 0.517647058823529 1" />
       </material>
     </visual>
     <collision>
@@ -80,7 +80,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://new_arena/meshes/slope.STL" />
+          filename="package://field/meshes/slope.STL" />
       </geometry>
     </collision>
   </link>
@@ -95,23 +95,23 @@
     <child
       link="slope" />
     <axis
-      xyz="0 0 0" />
+      xyz="1 0 0" />
   </joint>
   <link
     name="rubble">
     <inertial>
       <origin
-        xyz="-1.00575680043092 0.00661190412065712 0.00359709177349599"
+        xyz="-1.00575680043092 0.00661190412065712 0.0035970917734951"
         rpy="0 0 0" />
       <mass
         value="46.4124999999998" />
       <inertia
         ixx="15.2630731070815"
         ixy="0.00197400686776215"
-        ixz="0.00555265149334863"
+        ixz="0.00555265149334858"
         iyy="30.3300250056683"
-        iyz="-0.00170076790075579"
-        izz="15.0694080090994" />
+        iyz="-0.0017007679007558"
+        izz="15.0694080090995" />
     </inertial>
     <visual>
       <origin
@@ -119,7 +119,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://new_arena/meshes/rubble.STL" />
+          filename="package://field/meshes/rubble.STL" />
       </geometry>
       <material
         name="">
@@ -133,7 +133,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://new_arena/meshes/rubble.STL" />
+          filename="package://field/meshes/rubble.STL" />
       </geometry>
     </collision>
   </link>
@@ -148,7 +148,7 @@
     <child
       link="rubble" />
     <axis
-      xyz="1 0 0" />
+      xyz="0 0 0" />
   </joint>
   <link
     name="wall_1">
@@ -163,7 +163,7 @@
         ixy="-1.49560497243821E-30"
         ixz="-1.5149918356864E-16"
         iyy="17.3333333333333"
-        iyz="1.01562711911046E-31"
+        iyz="9.4039548065783E-32"
         izz="33.3333333333333" />
     </inertial>
     <visual>
@@ -172,7 +172,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://new_arena/meshes/wall_1.STL" />
+          filename="package://field/meshes/wall_1.STL" />
       </geometry>
       <material
         name="">
@@ -186,7 +186,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://new_arena/meshes/wall_1.STL" />
+          filename="package://field/meshes/wall_1.STL" />
       </geometry>
     </collision>
   </link>
@@ -201,7 +201,7 @@
     <child
       link="wall_1" />
     <axis
-      xyz="0 0 1" />
+      xyz="0 0 0" />
   </joint>
   <link
     name="wall_2">
@@ -216,7 +216,7 @@
         ixy="0"
         ixz="-2.31296463463575E-17"
         iyy="17.3333333333333"
-        iyz="4.58912994561021E-32"
+        iyz="5.7176045223996E-32"
         izz="33.3333333333334" />
     </inertial>
     <visual>
@@ -225,7 +225,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://new_arena/meshes/wall_2.STL" />
+          filename="package://field/meshes/wall_2.STL" />
       </geometry>
       <material
         name="">
@@ -239,7 +239,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://new_arena/meshes/wall_2.STL" />
+          filename="package://field/meshes/wall_2.STL" />
       </geometry>
     </collision>
   </link>
@@ -247,13 +247,13 @@
     name="wall_2_joint"
     type="fixed">
     <origin
-      xyz="3.0334 2.5 0.1"
-      rpy="-1.5708 0 -1.5708" />
+      xyz="3.03337213258269 2.5 0.0999999999999998"
+      rpy="-1.5707963267949 0 -1.5707963267949" />
     <parent
       link="arena" />
     <child
       link="wall_2" />
     <axis
-      xyz="0 0 1" />
+      xyz="1 0 0" />
   </joint>
 </robot>

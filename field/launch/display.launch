@@ -3,7 +3,7 @@
     name="model" />
   <param
     name="robot_description"
-    textfile="$(find new_arena)/urdf/new_arena.urdf" />
+    textfile="$(find field)/urdf/field.urdf" />
   <node
     name="joint_state_publisher_gui"
     pkg="joint_state_publisher_gui"
@@ -16,5 +16,5 @@
     name="rviz"
     pkg="rviz"
     type="rviz"
-    args="-d $(find new_arena)/urdf.rviz" />
+    args="-d $(find field)/urdf.rviz" />
 </launch>
