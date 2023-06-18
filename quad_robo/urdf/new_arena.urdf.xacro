@@ -1,0 +1,359 @@
+<?xml version="1.0" ?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="new_arena">
+
+  <xacro:macro name="base_arena_color">
+      <visual>
+        <material>
+          <ambient>0.756862745098039 0.964705882352941 1</ambient>
+          <diffuse>0.756862745098039 0.964705882352941 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+  </xacro:macro>
+
+  <xacro:macro name="wall_color">
+    <visual>
+      <material>
+        <ambient>0.752941176470588 0.752941176470588 1</ambient>
+        <diffuse>0.752941176470588 0.752941176470588 1</diffuse>
+        <specular>0.1 0.1 0.1 1</specular>
+        <emissive>0 0 0 0</emissive>
+      </material>
+    </visual>
+  </xacro:macro>
+
+  <xacro:macro name="slope_color">
+    <visual>
+      <material>
+        <ambient>0.501960784313725 0.501960784313725 1</ambient>
+        <diffuse>0.501960784313725 0.501960784313725 1</diffuse>
+        <specular>0.1 0.1 0.1 1</specular>
+        <emissive>0 0 0 0</emissive>
+      </material>
+    </visual>
+  </xacro:macro>
+
+  <xacro:macro name="rubble_color">
+    <visual>
+      <material>
+        <ambient>1 0.752941176470588 1</ambient>
+        <diffuse>1 0.752941176470588 1</diffuse>
+        <specular>0.1 0.1 0.1 1</specular>
+        <emissive>0 0 0 0</emissive>
+      </material>
+    </visual>
+  </xacro:macro>
+  <link
+    name="arena">
+    <inertial>
+      <origin
+        xyz="1.80521197365816E-16 0.251860663172305 -4.7103827393181E-16"
+        rpy="0 0 0" />
+      <mass
+        value="36196.5475825679" />
+      <inertia
+        ixx="111361.282109728"
+        ixy="2.43960805775586E-12"
+        ixz="5.68961615328297E-11"
+        iyy="621439.168724381"
+        iyz="7.09664604464703E-13"
+        izz="512546.576764148" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robo/meshes/arena.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.756862745098039 0.964705882352941 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robo/meshes/arena.STL" />
+      </geometry>
+    </collision>
+    <surface>
+        <friction>
+          <ode>
+            <mu>100</mu>
+            <mu2>100</mu2>
+          </ode>
+        </friction>
+      </surface>
+  </link>
+  <link
+    name="slope">
+    <inertial>
+      <origin
+        xyz="-1.72294044859281E-15 -0.0624999999999999 0"
+        rpy="0 0 0" />
+      <mass
+        value="5300" />
+      <inertia
+        ixx="1871.13020833333"
+        ixy="-5.16947595841089E-13"
+        ixz="1.14597522935719E-12"
+        iyy="20025.5208333333"
+        iyz="2.63677968348475E-14"
+        izz="18363.3177083333" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robo/meshes/slope.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 0.501960784313725 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robo/meshes/slope.STL" />
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>100</mu>
+            <mu2>100</mu2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+  </link>
+  <joint
+    name="slope_joint"
+    type="fixed">
+    <origin
+      xyz="0 -3 0.375"
+      rpy="1.5708 0 0" />
+    <parent
+      link="arena" />
+    <child
+      link="slope" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <!-- <link
+    name="rubble">
+    <inertial>
+      <origin
+        xyz="-1.00575680043092 0.00661190412065712 0.00359709177349599"
+        rpy="0 0 0" />
+      <mass
+        value="46.4124999999998" />
+      <inertia
+        ixx="15.2630731070815"
+        ixy="0.00197400686776215"
+        ixz="0.00555265149334863"
+        iyy="30.3300250056683"
+        iyz="-0.00170076790075579"
+        izz="15.0694080090994" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robo/meshes/rubble.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0.752941176470588 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robo/meshes/rubble.STL" />
+      </geometry>
+    </collision>
+    <surface>
+        <friction>
+          <ode>
+            <mu>100</mu>
+            <mu2>100</mu2>
+          </ode>
+        </friction>
+      </surface>
+  </link>
+  <joint
+    name="rubble_joint"
+    type="fixed">
+    <origin
+      xyz="-1.6666 3 0.1"
+      rpy="1.5708 0 0" />
+    <parent
+      link="arena" />
+    <child
+      link="rubble" />
+    <axis
+      xyz="1 0 0" />
+  </joint> -->
+  <link
+    name="wall_1">
+    <inertial>
+      <origin
+        xyz="-4.44089209850063E-16 0.5 0.1"
+        rpy="0 0 0" />
+      <mass
+        value="200" />
+      <inertia
+        ixx="17.3333333333333"
+        ixy="-1.49560497243821E-30"
+        ixz="-1.5149918356864E-16"
+        iyy="17.3333333333333"
+        iyz="1.01562711911046E-31"
+        izz="33.3333333333333" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robo/meshes/wall_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robo/meshes/wall_1.STL" />
+      </geometry>
+    </collision>
+    <surface>
+        <friction>
+          <ode>
+            <mu>100</mu>
+            <mu2>100</mu2>
+          </ode>
+        </friction>
+      </surface>
+  </link>
+  <joint
+    name="wall_1_joint"
+    type="fixed">
+    <origin
+      xyz="1.3334 3.5 0.1"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="arena" />
+    <child
+      link="wall_1" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="wall_2">
+    <inertial>
+      <origin
+        xyz="0 -0.5 0.1"
+        rpy="0 0 0" />
+      <mass
+        value="200" />
+      <inertia
+        ixx="17.3333333333334"
+        ixy="0"
+        ixz="-2.31296463463575E-17"
+        iyy="17.3333333333333"
+        iyz="4.58912994561021E-32"
+        izz="33.3333333333334" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robo/meshes/wall_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://quad_robo/meshes/wall_2.STL" />
+      </geometry>
+    </collision>
+    <surface>
+        <friction>
+          <ode>
+            <mu>100</mu>
+            <mu2>100</mu2>
+          </ode>
+        </friction>
+      </surface>
+  </link>
+  <joint
+    name="wall_2_joint"
+    type="fixed">
+    <origin
+      xyz="3.0334 2.5 0.1"
+      rpy="-1.5708 0 -1.5708" />
+    <parent
+      link="arena" />
+    <child
+      link="wall_2" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+
+  <gazebo reference="arena">
+    <xacro:base_arena_color />
+  </gazebo>
+  <gazebo reference="wall_1">
+    <xacro:wall_color />
+  </gazebo>
+  <gazebo reference="wall_2">
+    <xacro:wall_color />
+  </gazebo>
+  <gazebo reference="rubble">
+    <xacro:rubble_color />
+  </gazebo>
+  <gazebo reference="slope">
+    <xacro:slope_color />
+  </gazebo>
+
+</robot>

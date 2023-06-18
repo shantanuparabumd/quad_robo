@@ -1,0 +1,107 @@
+<!-- Every launch file starts with this command -->
+<launch> 
+
+    <!-- Include helps you launch other launch files within this launch file-->
+        <!-- For file tag, mention the gazebo_ros empty world's launch file -->
+        <!-- For the arg name, give any name of your choice to this world -->
+        <!-- for the value tag, provide the path to the world file that you downloaded -->
+	<include file= "$(find quad_robo)/launch/empty_world.launch" > 
+		<!-- <arg name="world_name" value="$(find quad_robo)/worlds/competition_arena.world"/>   -->
+        <!-- <arg name="paused" value="True"/> -->
+	</include>
+		
+
+        <!-- Defining this param here helps you store all the urdf contents of robot+lidar into a single param name -->
+        <!-- fill the command by adding in the path to your .xacro file the $ symbol below -->
+        <!--  -->
+        <!-- <param name="robot_description" command="cat '$(find my_robot_urdf)/urdf/m2wr.urdf'" /> -->
+
+	<!-- <param name= "arena_description" command="cat '$(find quad_robo)urdf/field.urdf'" /> -->
+
+    <param name="robot_description"
+    command="$(find xacro)/xacro --inorder '$(find quad_robo)/urdf/quad_robo.urdf.xacro'" />
+
+    <param name="arena_description"
+    command="$(find xacro)/xacro --inorder '$(find quad_robo)/urdf/field.urdf.xacro'" />
+
+    <!-- Add in your robot name in the value tag -->
+    
+    <param name = "my_robot" value="quad_robo"/> 
+
+	<arg name ="init_pose" value="-x 7.0 -y 0.0 -z 1.1 -R  0.0 -P -0.2 -Y 1.573"/>
+0
+    <arg name ="init_pose_1" value="-x 0 -y 0 -z 0.0 -R 0 -P 0 -Y 0"/>
+    
+    <!-- <param
+    name="robot_description"
+    textfile="$(find quad_robo)/urdf/quad_robo.urdf" /> -->
+    <!-- This command adds the controller variables you defined in the config file into ros's parameter list. Simply add the file name in the file tag -->
+	<rosparam file="$(find quad_robo)/config/control.yaml" command="load"/>
+
+
+	<!-- Node for publishing base footprint -->
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+        <param name="use_gui" value="True"/>
+    </node>
+
+
+    <!-- TF node that gives the static transformation between the world map and the base link of your robot. Change /base_link to the /root link name of your robot -->
+    <node pkg="tf" type="static_transform_publisher" name="map_to_base" args="1 0 0 0 0 0 1 /map /dummy_link 10" />
+
+
+    <!-- Controller spawner: Starts all the defined controllers with their configs. Just add your controller names defined in your config file into the args tag below   -->
+    <node name="controller_spwaner" pkg="controller_manager" type="spawner" respawn="false"
+    	output="screen" ns="/quad_robo" args="joint_state_controller brt_position_controller brl_position_controller brs_position_controller frt_position_controller frl_position_controller frs_position_controller blt_position_controller bll_position_controller bls_position_controller flt_position_controller fll_position_controller fls_position_controller" />
+
+
+    <!-- A node to publish the robot states onto ros network -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>	
+
+    <!-- <node pkg="rostopic" type="rostopic" name="joint_init1" args="pub /quad_robo/frt_position_controller/command std_msgs/Float64 'data: 0.0'"/>
+    <node pkg="rostopic" type="rostopic" name="joint_init2" args="pub /quad_robo/frl_position_controller/command std_msgs/Float64 'data: -0.7'"/>
+    <node pkg="rostopic" type="rostopic" name="joint_init3" args="pub /quad_robo/frs_position_controller/command std_msgs/Float64 'data: 1.5'"/>
+
+    <node pkg="rostopic" type="rostopic" name="joint_init4" args="pub /quad_robo/brt_position_controller/command std_msgs/Float64 'data: 0.0'"/>
+    <node pkg="rostopic" type="rostopic" name="joint_init5" args="pub /quad_robo/brl_position_controller/command std_msgs/Float64 'data: -0.7'"/>
+    <node pkg="rostopic" type="rostopic" name="joint_init6" args="pub /quad_robo/brs_position_controller/command std_msgs/Float64 'data: 1.5'"/>
+
+    <node pkg="rostopic" type="rostopic" name="joint_init8" args="pub /quad_robo/flt_position_controller/command std_msgs/Float64 'data: 0.0'"/>
+    <node pkg="rostopic" type="rostopic" name="joint_init7" args="pub /quad_robo/fll_position_controller/command std_msgs/Float64 'data: -0.7'"/>
+    <node pkg="rostopic" type="rostopic" name="joint_init9" args="pub /quad_robo/fls_position_controller/command std_msgs/Float64 'data: 1.5'"/>
+
+    <node pkg="rostopic" type="rostopic" name="joint_init10" args="pub /quad_robo/blt_position_controller/command std_msgs/Float64 'data: 0.0'"/>
+    <node pkg="rostopic" type="rostopic" name="joint_init11" args="pub /quad_robo/bll_position_controller/command std_msgs/Float64 'data: -0.7'"/>
+    <node pkg="rostopic" type="rostopic" name="joint_init12" args="pub /quad_robo/bls_position_controller/command std_msgs/Float64 'data: 1.5'"/> -->
+    <!-- A node to spawn the robot into gazebo's world file. Notice that the args has the param robot_description that you previously defined. This is how your robot's spec gets included.-->
+   	<!-- <node
+		name="spawn_arena"
+		pkg="gazebo_ros"
+		type="spawn_model"
+		args="$(arg init_pose_1) -param arena_description -urdf -model arena"
+		output="screen"/> -->
+
+    <node
+		name="spawn_model"
+		pkg="gazebo_ros"
+		type="spawn_model"
+		args="$(arg init_pose) -param robot_description -urdf -model my_robot"
+		output="screen"/>
+    
+    
+
+
+	<!--Default node -->
+	<node
+    name="fake_joint_calibration"
+    pkg="rostopic"
+    type="rostopic"
+    args="pub /calibrated std_msgs/Bool true" />
+
+    <!-- <node
+    name="rviz"
+    pkg="rviz"
+    type="rviz"
+    args="-d $(find quad_robo)/urdf.rviz" /> -->
+
+
+</launch>
