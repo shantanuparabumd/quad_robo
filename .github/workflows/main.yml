@@ -1,0 +1,77 @@
+# This is a basic workflow to help you get started with Actions
+
+name: quad_robo_build
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-20.04
+
+    
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      
+
+      # Runs a single command using the runners shell
+      - name: Install ROS Noetic
+        run: |
+          sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+          sudo apt install curl
+          curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
+          sudo apt update
+          sudo apt install ros-noetic-desktop-full
+
+      # Runs a set of commands using the runners shell
+      - name: Environment Setup
+        run: source /opt/ros/noetic/setup.bash
+
+      - name: Dependencies
+        run: |
+          sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential
+          sudo apt install python3-rosdep
+          sudo rosdep init
+          rosdep update
+
+      - name: Workspace Setup
+        run: |
+          source /opt/ros/noetic/setup.bash
+          mkdir -p catkin_ws/src/quad_robo
+          cd catkin_ws
+          catkin_make
+          source devel/setup.bash
+
+
+
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+        with:
+         path: catkin_ws/src/quad_robo
+
+      # - name: Check File Structure
+      #   run: |
+      #       cd catkin_ws
+      #       ls -a
+      #       cd src
+      #       ls -a
+
+
+      - name: Build
+        run: |
+           source /opt/ros/noetic/setup.bash
+           cd catkin_ws
+           catkin_make
+           source devel/setup.bash
