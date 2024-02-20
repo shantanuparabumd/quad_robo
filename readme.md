@@ -3,14 +3,17 @@
 
 # Project Legion
 
-<!-- [![codecov](https://codecov.io/gh/jayprajapati009/project_chakravyu/branch/main/graph/badge.svg?token=0C30FZ9SC6)](https://codecov.io/gh/jayprajapati009/project_chakravyu) -->
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) 
 
 ![Build Status](https://github.com/shantanuparabumd/quad_robo/actions/workflows/main.yml/badge.svg)
 
 
-![Project Legion](/images/quad_robo.png)
+
+
+https://github.com/shantanuparabumd/quad_robo/assets/112659509/1dbaa1dd-f1ca-4bd2-8f20-401817f208e4
+
+
 
 ## Authors
 
@@ -45,7 +48,6 @@ Taking inspiration from the incredible Boston Dynamics Spot robot, this project 
 ## Documents
 
 [AIP Sheet](https://docs.google.com/spreadsheets/d/10HzXxKAx0vlCkuSPjUT41-QAT8gSsVI4Um7Ahq-aHGc/edit?usp=sharing)
-<!-- |Sprint and Review Meeting Notes|[Link](https://docs.google.com/document/d/1zADA51S8-DCuGPjZB7dvrBzD6DiS--uvvF-nh4I-Mvw/edit?usp=sharing)| -->
 
 
 
