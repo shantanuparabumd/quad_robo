@@ -1,4 +1,4 @@
-# Qudreped Robot 
+# Qudruped Robot 
 
 
 # Project Legion
