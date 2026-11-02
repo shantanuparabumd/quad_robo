@@ -5,9 +5,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 ![Build Status](https://github.com/shantanuparabumd/quad_robo/actions/workflows/main.yml/badge.svg)
 
-[![Watch the Sprout launch video](docs/media/sprout-launch.jpg)](docs/media/sprout-launch.mp4)
 
-<sub>▶ Click the image for the 20-second launch video.</sub>
+https://github.com/user-attachments/assets/f2344df4-ac7d-424a-8175-407aeae86478
 
 Sprout was designed in SolidWorks, exported to URDF, and brought to life in Gazebo on ROS Noetic.
 Every step is pre-solved with inverse kinematics and replayed at 200 Hz, and you drive it from your keyboard.
