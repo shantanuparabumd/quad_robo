@@ -3,7 +3,7 @@
 **A Spot-inspired quadruped robot, built entirely in simulation.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-![Build Status](https://github.com/shantanuparabumd/quad_robo/actions/workflows/main.yml/badge.svg)
+![Build Status](https://github.com/shantanuparabumd/sprout/actions/workflows/main.yml/badge.svg)
 
 
 https://github.com/user-attachments/assets/f2344df4-ac7d-424a-8175-407aeae86478
@@ -37,7 +37,7 @@ https://github.com/shantanuparabumd/quad_robo/assets/112659509/1dbaa1dd-f1ca-4bd
 ```bash
 # 1. Build inside a catkin workspace (the package name is quad_robo)
 mkdir -p ~/catkin_ws/src && cd ~/catkin_ws/src
-git clone https://github.com/shantanuparabumd/quad_robo.git
+git clone https://github.com/shantanuparabumd/sprout.git quad_robo
 cd ~/catkin_ws && catkin_make && source devel/setup.bash
 
 # 2. Spawn Sprout in Gazebo with its controllers
