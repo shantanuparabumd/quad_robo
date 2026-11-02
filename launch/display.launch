@@ -16,5 +16,5 @@
     name="rviz"
     pkg="rviz"
     type="rviz"
-    args="-d $(find quad_robo)/urdf.rviz" />
+    args="-d $(find quad_robo)/config/display.rviz" />
 </launch>

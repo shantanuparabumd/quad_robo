@@ -2,13 +2,13 @@
   <name>quad_robo</name>
   <version>1.0.0</version>
   <description>
-    <p>URDF Description package for quad_robo</p>
-    <p>This package contains configuration data, 3D models and launch files
-for quad_robo robot</p>
+    Sprout: a Spot-inspired quadruped robot for ROS Noetic and Gazebo.
+    Contains the URDF, meshes, ros_control configuration, launch files,
+    and pre-solved inverse-kinematics gaits with a keyboard teleop script.
   </description>
-  <author>TODO</author>
-  <maintainer email="TODO@email.com" />
-  <license>BSD</license>
+  <author email="sparab@umd.edu">Shantanu Parab</author>
+  <maintainer email="sparab@umd.edu">Shantanu Parab</maintainer>
+  <license>MIT</license>
   <buildtool_depend>catkin</buildtool_depend>
   <depend>roslaunch</depend>
   <depend>robot_state_publisher</depend>
